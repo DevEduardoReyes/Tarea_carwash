@@ -1,11 +1,23 @@
+from abc import ABC, abstractmethod
 
-class cliente:
+
+class cliente(ABC):
     def __int__(self, identidad, nombre, apellido):
         self.identidad = identidad
         self.nombre = nombre
         self.apellido = apellido
 
-class auto:
+    @abstractmethod
+    def lavado_aspirado(self):
+        pass
+    @abstractmethod
+    def Shamposeado(self):
+        pass
+    @abstractmethod
+    def Expotador(self):
+        pass
+
+class auto(ABC):
     def __int__(self,tipo,year,asientos):
         self.tipo = tipo
         self.year = year
@@ -41,6 +53,6 @@ class orden(cliente,auto):
             precio = 3500
         return precio
 
-nuevo = orden(1999,"eduardo",'reyes','camioneta',2018,2,18,20)
+nuevo = orden(1999,"eduardo",'reyes','camioneta',1999,2,18,20)
 
-print(nuevo.lavado_aspirado())
+print(nuevo.Expotador())
